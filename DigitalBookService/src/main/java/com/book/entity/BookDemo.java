@@ -14,6 +14,8 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import lombok.Data;
 @Data
 @Entity
@@ -40,7 +42,8 @@ public class BookDemo {
 	@NotBlank(message = "publisher cannot be blank#######")
 	private String publisher;
 
-	@JsonFormat(pattern = "yyyy-MM-dd")
+	@JsonDeserialize(using = LocalDateDeserializer.class)
+//	@JsonFormat(pattern="dd/MM/yyyy hh:mm")
 	private LocalDate publishedDate;
 
 	@NotBlank(message = "content cannot be blank#######")

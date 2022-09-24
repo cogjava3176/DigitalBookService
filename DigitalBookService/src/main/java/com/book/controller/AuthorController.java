@@ -20,8 +20,8 @@ public class AuthorController {
 
 		@PostMapping("/signup")
 		
-		public Integer saveAuthor(@Valid @RequestBody AuthorDemo author) {
-			return authorService.saveAuthor(author).getId();
+		public AuthorDemo saveAuthor(@Valid @RequestBody AuthorDemo author) {
+			return authorService.saveAuthor(author);
 		}
 
 	}
