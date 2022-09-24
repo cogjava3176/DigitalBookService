@@ -37,4 +37,13 @@ public class ReaderController {
 		return readerService.saveReader(user);
 	}
 
+	@GetMapping("/login")
+	public ReaderDemo login(@RequestParam String email, @RequestParam String password) throws Exception {
+		ReaderDemo reader = readerService.login(email, password);
+//		if (reader == null) {
+//			throw new Exception("Wrong email or password");
+//		}
+		return reader;
+	}
+
 }

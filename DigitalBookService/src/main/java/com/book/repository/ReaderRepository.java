@@ -7,4 +7,6 @@ import com.book.entity.ReaderDemo;
 public interface ReaderRepository extends JpaRepository<ReaderDemo, Integer> {
 
     ReaderDemo getByEmail(String email);
+
+    ReaderDemo getFirstByEmailAndPassword(String email, String password);
 }
