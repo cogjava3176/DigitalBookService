@@ -15,6 +15,10 @@ public class AuthorService {
 		return authorRepository.findById(id);
 	}
 
+	public AuthorDemo getAuthorByName(String name) {
+		return authorRepository.findByName(name);
+	}
+
 	public AuthorDemo saveAuthor(AuthorDemo author) {
 		return authorRepository.save(author);
 	}

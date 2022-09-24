@@ -86,18 +86,18 @@ public class BookController {
     }
 
 
-    @PostMapping("/author/{authorId}/books")
+    @PostMapping("")
 
-    public BookDemo saveBook(@Valid @RequestBody BookDemo book,
-                             @PathVariable("authorId") int authorId) throws Exception {
-        AuthorDemo author = authorService.getAuthorById(authorId);
-        if (null != author) {
-            book.setAuthor(author);
-            bookService.saveBook(book);
-            return book;
-        } else {
-            throw new Exception("Author not found!!");
+    public BookDemo saveBook(@Valid @RequestBody BookDemo book) throws Exception {
+        AuthorDemo author = authorService.getAuthorByName(book.getAuthor().getName());
+        if (null == author) {
+            author = new AuthorDemo();
+            author.setName(book.getAuthor().getName());
+            author = authorService.saveAuthor(author);
         }
+        book.setAuthor(author);
+        bookService.saveBook(book);
+        return book;
     }
 
     @PostMapping("/books/buy")
