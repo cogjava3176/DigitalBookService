@@ -30,7 +30,7 @@ public class AuthorControllerTest {
 		author.setName("Ram");
 		
 		when(authorService.saveAuthor(author)).thenReturn(author);
-		int savedAuthorId = authorController.saveAuthor(author);
+		int savedAuthorId = authorController.saveAuthor(author).getId();
 		assertEquals(1, savedAuthorId);
 	}
 

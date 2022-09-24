@@ -25,4 +25,5 @@ public class ReaderDemo {
 		@Email(message = "email should be in correct format")
 		private String email;
 
+		private String password;
 }
