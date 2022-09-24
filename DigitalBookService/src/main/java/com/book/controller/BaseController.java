@@ -33,5 +33,10 @@ public class BaseController {
 		return "something went wrong";
 	}
 
+	@ResponseStatus(code = HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(Exception.class)
+	public String handle(Exception ex) {
+		return "something went wrong";
+	}
 
 }

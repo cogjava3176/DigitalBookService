@@ -12,6 +12,10 @@ public class ReaderService {
 	@Autowired
 	ReaderRepository readerRepository;
 
+	public ReaderDemo getByEmail(String email) {
+		return readerRepository.getByEmail(email);
+	}
+
 	public ReaderDemo saveReader(ReaderDemo reader) {
 		return readerRepository.save(reader);
 	}
