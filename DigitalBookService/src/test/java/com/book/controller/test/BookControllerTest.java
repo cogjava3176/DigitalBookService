@@ -51,7 +51,7 @@ public class BookControllerTest {
 		book.setAuthor(author);
 		when(authorService.getAuthorById(1)).thenReturn(author);
 		when(bookService.saveBook(book)).thenReturn(book);
-		Integer savedBookId = bookController.saveBook(book, 1).getId();
+		Integer savedBookId = bookController.saveBook(book).getId();
 		assertEquals(1, savedBookId);
 	}
 
